@@ -1,23 +1,25 @@
 export default /* glsl */`
 #ifdef USE_SHADOWMAP
 
+#if NUM_SPOT_LIGHT_COORDS > 0
+
+	#pragma unroll_loop
+	for ( int i = 0; i < NUM_SPOT_LIGHT_COORDS; i ++ ) {
+
+		vSpotShadowCoord[ i ] = spotShadowMatrix[ i ] * worldPosition;
+
+	}
+
+#endif
+
+#ifdef USE_SHADOWMAP
+
 	#if NUM_DIR_LIGHTS > 0
 
 	#pragma unroll_loop
 	for ( int i = 0; i < NUM_DIR_LIGHTS; i ++ ) {
 
 		vDirectionalShadowCoord[ i ] = directionalShadowMatrix[ i ] * worldPosition;
-
-	}
-
-	#endif
-
-	#if NUM_SPOT_LIGHTS > 0
-
-	#pragma unroll_loop
-	for ( int i = 0; i < NUM_SPOT_LIGHTS; i ++ ) {
-
-		vSpotShadowCoord[ i ] = spotShadowMatrix[ i ] * worldPosition;
 
 	}
 

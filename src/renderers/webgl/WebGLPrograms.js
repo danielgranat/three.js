@@ -35,7 +35,7 @@ function WebGLPrograms( renderer, extensions, capabilities, textures ) {
 		"flatShading", "sizeAttenuation", "logarithmicDepthBuffer", "skinning",
 		"maxBones", "useVertexTexture", "morphTargets", "morphNormals",
 		"maxMorphTargets", "maxMorphNormals", "premultipliedAlpha",
-		"numDirLights", "numPointLights", "numSpotLights", "numHemiLights", "numRectAreaLights",
+		"numDirLights", "numPointLights", "numSpotLights", "numSpotLightMaps", "numHemiLights", "numRectAreaLights",
 		"shadowMapEnabled", "shadowMapType", "toneMapping", 'physicallyCorrectLights',
 		"alphaTest", "doubleSided", "flipSided", "numClippingPlanes", "numClipIntersection", "depthPacking", "dithering"
 	];
@@ -189,6 +189,8 @@ function WebGLPrograms( renderer, extensions, capabilities, textures ) {
 			numSpotLights: lights.spot.length,
 			numRectAreaLights: lights.rectArea.length,
 			numHemiLights: lights.hemi.length,
+
+			numSpotLightMaps: lights.spotMap.length,
 
 			numClippingPlanes: nClipPlanes,
 			numClipIntersection: nClipIntersection,
