@@ -1,6 +1,4 @@
 export default /* glsl */`
-#ifdef USE_SHADOWMAP
-
 #if NUM_SPOT_LIGHT_COORDS > 0
 
 	#pragma unroll_loop
